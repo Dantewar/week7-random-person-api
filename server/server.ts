@@ -61,6 +61,25 @@ app.get("/random-person", async (req, res) => {
   }
 });
 
+const userSchema = z.object({
+  name: z.string().min(3).max(12),
+  age: z.number().min(18).max(100).optional().default(28),
+  email: z.string().trim().toLowerCase().email()
+});
+
+app.post("/users", (req, res) => {
+  const result = userSchema.safeParse(req.body);
+
+  if (!result.success) {
+    res.status(400).json({
+      error: "Invalid user data",
+      details: result.error.issues
+    });
+    return;
+  }
+
+  res.status(201).json(result.data);
+});
 app.listen(PORT, () => {
   console.log(`Server running on http://localhost:${PORT}`);
 });
