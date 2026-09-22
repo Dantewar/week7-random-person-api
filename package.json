@@ -1,16 +1,21 @@
+
 {
   "name": "week7-random-person-api",
   "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "description": "REST API built with Express, TypeScript and Zod",
+  "main": "dist/server.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "tsc",
     "dev": "tsx watch server/server.ts",
-    "start": "tsx server/server.ts"
+    "start": "tsx server/server.ts",
+    "build": "tsc"
   },
-  "keywords": [],
-  "author": "",
+  "keywords": [
+    "express",
+    "typescript",
+    "zod",
+    "api"
+  ],
+  "author": "Dante",
   "license": "ISC",
   "type": "commonjs",
   "dependencies": {
